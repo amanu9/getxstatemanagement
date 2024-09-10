@@ -27,7 +27,7 @@ class _FirstScreenState extends State<FirstScreen> {
         child: Column(
           children: [
             Center(child: ElevatedButton(onPressed: (){
-              Get.toNamed("/firstpage");
+              Get.toNamed("/binding");
             }, child:const  Text("first page"))),
 
              Column(
