@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getex/home_binding.dart';
+import 'package:getex/localizations/app_localize.dart';
 import 'package:getex/view/binding_example.dart';
 import 'package:getex/view/homepage.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+    
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       getPages: [
@@ -26,6 +28,10 @@ class MyApp extends StatelessWidget {
  GetPage(name: "/binding", page: ()=>const BindingScreen(),transition: Transition.leftToRight),
 GetPage(name: "/secondpage", page:()=> const SecondScreen(),transition: Transition.fadeIn)
       ],
+      locale:const  Locale("en"),
+      translations: AppLocalize(),
+    
+      
       title: 'Flutter Demo',
       initialBinding: HomeBinding(),
       theme: ThemeData(
@@ -33,6 +39,8 @@ GetPage(name: "/secondpage", page:()=> const SecondScreen(),transition: Transiti
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+
+      
      
     );
   }

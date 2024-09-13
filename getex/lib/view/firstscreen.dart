@@ -13,11 +13,37 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
+  String? _selectedLanguage;
   @override
   Widget build(BuildContext context) {
     Homecontrollerusingway2 controller=Get.put(Homecontrollerusingway2());//like dependency injection
     return Scaffold(
+      
       appBar: AppBar(
+         actions: [
+            DropdownButton<String>(
+              items: [
+                DropdownMenuItem(value: 'en', child: Text('English')),
+                DropdownMenuItem(value: 'ar', child: Text('Arabic')),
+                DropdownMenuItem(value: 'fr', child: Text('French')),
+               
+              ],
+              onChanged: (String? newValue) {
+               setState(() {
+                _selectedLanguage = newValue;
+              });
+                print("Selected language: $newValue");
+                 if (newValue != null) {
+                Get.updateLocale(Locale(newValue));
+                print("Selected language: $newValue");
+              }
+              },
+              underline: const SizedBox(), // Removes the underline
+              icon: const Icon(Icons.language),
+            ),
+          ],
+        
+        
           backgroundColor: Colors.blue,
         title: const Text("First page",style: TextStyle(color: Colors.white),),
         centerTitle: true,
@@ -56,6 +82,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   Column(
                       children: [
                          Text(controller.num.value.toString(),style: const TextStyle(color: Colors.red),),
+                         Text("display".tr),
                      const SizedBox(height: 10,),
                       ElevatedButton(onPressed: (){
               controller.increment();

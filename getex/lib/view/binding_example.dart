@@ -45,7 +45,7 @@ class _BindingScreen extends State<BindingScreen> {
                   builder: (controller){
                     return Column(
                       children: [
-                         Text(controller.name.toString(),style: const TextStyle(color: Colors.red),),
+                         Text(controller.name.toString(),style: const TextStyle(color: Color.fromARGB(255, 114, 112, 112)),),
                      const SizedBox(height: 10,),
                       ElevatedButton(onPressed: (){
               controller.display();
